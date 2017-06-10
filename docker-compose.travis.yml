@@ -1,0 +1,14 @@
+version: "2"
+services:
+  mongo:
+    image: mongo:3.4.4
+    ports:
+      - 27017:27017
+  api:
+    image: rezme/resume-core-api
+    build: .
+    env_file: .env
+    ports:
+      - 80:80
+    depends_on:
+      - mongo

@@ -1,22 +1,13 @@
 sudo: required
 
-environment:
-  - GIT_TAG=
+language: bash
+
+env:
+  - DOCKER_IMAGE=rezme/resume-core-api
 
 services:
   - docker
 
-before_install:
-  - export GIT_TAG=`git tag | tail -n1`
-  - docker pull rezme/resume-core-api:$GIT_TAG || echo building for new tag "$GIT_TAG"
-
-install:
-  - docker-compose -f docker-compose.travis.yml build
-
-before_script:
-  - docker tag rezme/resume-core-api:latest rezme/resume-core-api:$GIT_TAG
-
 script:
-  - docker login --username $DOCKER_LOGIN_USERNAME --password $DOCKER_LOGIN_PASSWORD
-  - docker push rezme/resume-core-api:latest
-  - docker push rezme/resume-core-api:$GIT_TAG
+  - TAG=`git tag | tail -n1`
+  - ./travis.sh $TAG $DOCKER_IMAGE $DOCKER_HUB_USERNAME $DOCKER_HUB_PASSWORD

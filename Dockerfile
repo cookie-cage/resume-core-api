@@ -13,7 +13,6 @@ COPY .env .env
 COPY middlewares middlewares
 COPY models models
 COPY resources resources
-COPY services services
 COPY index.js index.js
 COPY routes.js routes.js
 COPY README.md README.md

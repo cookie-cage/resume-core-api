@@ -1,7 +1,6 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var resumeSchema = require('resume-schema');
 
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;

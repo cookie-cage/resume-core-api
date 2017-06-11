@@ -10,10 +10,7 @@
     "express": "4.15.2",
     "jsonwebtoken": "7.4.1",
     "mongoose": "4.10.5",
-    "morgan": "1.8.2",
-    "response-time": "2.3.2",
-    "resume-schema": "0.0.16",
-    "winston": "2.3.1"
+    "resume-schema": "0.0.16"
   },
   "devDependencies": {
     "nodemon": "1.11.0"

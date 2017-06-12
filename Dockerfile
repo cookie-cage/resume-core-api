@@ -9,7 +9,6 @@ COPY package.json package.json
 RUN npm install
 
 # copy application
-COPY .env .env
 COPY middlewares middlewares
 COPY models models
 COPY resources resources

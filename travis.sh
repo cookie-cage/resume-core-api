@@ -13,10 +13,10 @@ if [[ -z $TAG || -z $DOCKER_IMAGE || -z $DOCKER_HUB_USERNAME || -z $DOCKER_HUB_P
 fi
 
 # fetch tag from git
-TAG_ALREADY_BUILT=`curl -f -s https://hub.docker.com/v2/repositories/$DOCKER_IMAGE/tags/$TAG/`
+TAG_FOUND=`curl -f -s https://hub.docker.com/v2/repositories/$DOCKER_IMAGE/tags/$TAG/ > /dev/null; echo $?`
 
 # only builds new tags
-if [ "$TAG_ALREADY_BUILT" != "22" ]; then
+if [ "$TAG_FOUND" == "0" ]; then
     echo tag $TAG has already been built;
     exit 0;
 fi
